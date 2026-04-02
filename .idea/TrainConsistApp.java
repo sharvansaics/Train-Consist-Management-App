@@ -3,25 +3,36 @@ import java.util.List;
 
 /**
  * Train Consist Management App
- * UC1: Initialize Train and Display Consist Summary
+ * UC2: Add Passenger Bogies to Train (ArrayList Operations)
  */
 public class TrainConsistApp {
 
     public static void main(String[] args) {
-        // 1. Application prints welcome message
+        // Welcome Message
         System.out.println("=== Train Consist Management App ===");
 
-        // 2. Train consist is initialized using ArrayList
-        // This dynamic list will store our bogies as the program progresses.
-        List<String> trainConsist = new ArrayList<>();
+        // Step 1: Initialize an ArrayList for passenger bogies
+        List<String> passengerBogies = new ArrayList<>();
 
-        // 3. Application status message
-        System.out.println("System initialized...");
+        // Step 2: Add bogies: Sleeper, AC Chair, First Class
+        passengerBogies.add("Sleeper");
+        passengerBogies.add("AC Chair");
+        passengerBogies.add("First Class");
+        System.out.println("Adding passenger bogies: Sleeper, AC Chair, First Class");
 
-        // 4. Initial bogie count is displayed using size()
-        System.out.println("Initial Bogie Count: " + trainConsist.size());
+        // Step 3: Print the list after insertion to show current composition
+        System.out.println("Current Consist: " + passengerBogies);
 
-        // 5. Program continues
-        System.out.println("Ready to receive bogie attachments.");
+        // Step 4: Remove one bogie (AC Chair)
+        passengerBogies.remove("AC Chair");
+        System.out.println("Removing AC Chair...");
+
+        // Step 5: Use contains() to check if 'Sleeper' exists
+        boolean exists = passengerBogies.contains("Sleeper");
+        System.out.println("Is 'Sleeper' still in the consist? " + exists);
+
+        // Step 6: Print final list state
+        System.out.println("Final Consist Summary: " + passengerBogies);
+        System.out.println("Total Bogies: " + passengerBogies.size());
     }
 }
