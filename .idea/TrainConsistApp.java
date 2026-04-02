@@ -1,9 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Train Consist Management App
- * UC2: Add Passenger Bogies to Train (ArrayList Operations)
+ * UC3: Track Unique Bogie IDs (Set – HashSet)
  */
 public class TrainConsistApp {
 
@@ -11,28 +11,21 @@ public class TrainConsistApp {
         // Welcome Message
         System.out.println("=== Train Consist Management App ===");
 
-        // Step 1: Initialize an ArrayList for passenger bogies
-        List<String> passengerBogies = new ArrayList<>();
+        // Step 1: Create a HashSet for bogie IDs to ensure uniqueness
+        // The Set interface is used for abstraction, and HashSet provides the implementation.
+        Set<String> bogieIds = new HashSet<>();
 
-        // Step 2: Add bogies: Sleeper, AC Chair, First Class
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
-        System.out.println("Adding passenger bogies: Sleeper, AC Chair, First Class");
+        // Step 2: Add unique and duplicate bogie IDs intentionally
+        System.out.println("Registering Bogie IDs: BG101, BG102, BG101 (Duplicate), BG103");
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG101"); // This duplicate will be automatically ignored
+        bogieIds.add("BG103");
 
-        // Step 3: Print the list after insertion to show current composition
-        System.out.println("Current Consist: " + passengerBogies);
+        // Step 3: Observe that duplicates are removed automatically
+        System.out.println("Bogie IDs registered in the system: " + bogieIds);
 
-        // Step 4: Remove one bogie (AC Chair)
-        passengerBogies.remove("AC Chair");
-        System.out.println("Removing AC Chair...");
-
-        // Step 5: Use contains() to check if 'Sleeper' exists
-        boolean exists = passengerBogies.contains("Sleeper");
-        System.out.println("Is 'Sleeper' still in the consist? " + exists);
-
-        // Step 6: Print final list state
-        System.out.println("Final Consist Summary: " + passengerBogies);
-        System.out.println("Total Bogies: " + passengerBogies.size());
+        // Step 4: Display the final unique count
+        System.out.println("Total Unique Bogies: " + bogieIds.size());
     }
 }
